@@ -90,7 +90,7 @@ module.exports = {
    */
   move: {
     frontend_dist: {
-      src: './frontend/dist',
+      src: './frontend/.output/public',  // 使用.output/public
       dest: './public/dist'
     },
     go_static: {
