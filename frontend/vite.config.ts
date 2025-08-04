@@ -1,11 +1,19 @@
-import { reactRouter } from "@react-router/dev/vite";
-import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-  // 添加构建配置
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  server: {
+    port: 8080,
+    host: true
+  },
   build: {
     outDir: 'dist',
     rollupOptions: {
@@ -14,11 +22,5 @@ export default defineConfig({
       }
     }
   },
-  // 基础路径配置
-  base: './',
-  // 开发服务器配置
-  server: {
-    port: 8080,
-    host: true
-  }
-});
+  base: './'
+})
