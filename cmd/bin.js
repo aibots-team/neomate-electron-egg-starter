@@ -12,7 +12,7 @@ module.exports = {
       directory: './frontend',
       cmd: 'npm',
       args: ['run', 'dev'],
-      port: 3000,
+      port: 8080,  // 改为8080以匹配Vite配置
     },
     electron: {
       directory: './',
@@ -90,7 +90,7 @@ module.exports = {
    */
   move: {
     frontend_dist: {
-      src: './frontend/.output/public',  // 使用.output/public
+      src: './frontend/dist',  // 改为使用传统的dist目录
       dest: './public/dist'
     },
     go_static: {
